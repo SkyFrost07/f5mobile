@@ -3251,7 +3251,7 @@ if ( ! function_exists( 'ot_list_item_settings' ) ) {
         'label'     => __( 'Image', 'option-tree' ),
         'desc'      => '',
         'std'       => '',
-        'type'      => 'upload',
+        'type'      => 'text',
         'rows'      => '',
         'class'     => '',
         'post_type' => '',

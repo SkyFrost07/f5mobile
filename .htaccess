@@ -11,8 +11,8 @@
 	</IfModule>
 
 	# Enable the hide backend feature - Security > Settings > Hide Login Area > Hide Backend
-	RewriteRule ^(/wp/)?manage/?$ /wp/wp-login.php [QSA,L]
-	RewriteRule ^(/wp/)?wp-register-php/?$ /wplogin?action=register [QSA,L]
+	RewriteRule ^(/f5mobile/)?manage/?$ /f5mobile/wp-login.php [QSA,L]
+	RewriteRule ^(/f5mobile/)?wp-register-php/?$ /wplogin?action=register [QSA,L]
 # END iThemes Security - Do not modify or remove this line
 
 # BEGIN WordPress

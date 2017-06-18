@@ -1,8 +1,28 @@
 (function ($) {
 
     $(window).resize(function () {
-        $('.logo-col .logo').height($('.head-col').height());
+        var headHeight = $('#head_block>.container').height();
+        if (headHeight > 110) {
+            headHeight = 110;
+        }
+        console.log(headHeight);
+        $('.logo-col .logo').height(headHeight);
+        
+        //set menu parent height
     }).resize();
+    
+    function menuItemMinHeight() {
+        var miMaxHeight = -1;
+        var listMenus = $('#cl_menu ul.menu>li').slice(0, 3).removeAttr('style');
+        listMenus.each(function (index) {
+            if ($(this).height() > miMaxHeight) {
+                miMaxHeight = $(this).height();
+            }
+        });
+        listMenus.each(function () {
+           $(this).height(miMaxHeight); 
+        });
+    }
     
     var elCollapseMenu = $('#cl_menu');
     var btnCollapseMenu = $('.pl-btn-menu');
@@ -10,6 +30,9 @@
         if ($(window).width() >= 768) {
             elCollapseMenu.addClass('cl_show');
             btnCollapseMenu.addClass('cl_show');
+        }
+        if ($(window).width() >= 600) {
+            menuItemMinHeight();
         }
     });
     $('.pl-btn-menu, #cl_menu').on('mouseleave', function () {
@@ -63,7 +86,7 @@
         controlNav: false,
         animationLoop: false,
         slideshow: false,
-        itemWidth: 210,
+        itemWidth: 225,
         itemMargin: 0,
         directionNav: false,
         asNavFor: '.main-slider'

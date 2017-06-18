@@ -26,7 +26,7 @@ define( 'DISALLOW_FILE_EDIT', true ); // Disable File Editor - Security > Settin
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME', 'wp_basic');
+define('DB_NAME', 'f5mobile_db');
 
 /** MySQL database username */
 define('DB_USER', 'root');

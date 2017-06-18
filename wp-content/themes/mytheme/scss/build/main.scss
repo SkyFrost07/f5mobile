@@ -64,6 +64,7 @@ header {
         font-size: (12/$fsize) + rem;
         margin-bottom: 5px;
         margin-top: 5px;
+        font-weight: 500;
     }
     span {
         color: $graycl;
@@ -73,6 +74,7 @@ header {
     }
     .inner {
         cursor: pointer;
+        a.media {display: block;}
         &:hover {
             .media-left i {
                 border-color: $maincl;
@@ -209,7 +211,7 @@ header {
             text-decoration: none;
         }
     }
-    li.parent {
+    li.menu-item-has-children, ul.menu>li {
         width: 30%;
         padding: 0 10px;
         margin-bottom: 10px;
@@ -223,7 +225,9 @@ header {
         li {
             padding: 5px 0;
         }
-        li.width-50 {
+    }
+    .child-50 ul.sub-menu {
+        li {
             width: 50%;
             float: left;
         }
@@ -275,7 +279,7 @@ header {
     }
     .slide-title {
         height: 60px;
-        padding: 12px 0 12px 30px;
+        padding: 12px 0 12px 40px;
     }
     margin-bottom: 15px;
     border: 1px solid #ddd;
@@ -397,7 +401,7 @@ header {
 .col-items {
     .item {
         background: #fafafa;
-        padding: 7px 10px;
+        padding: 5px 10px;
         border-bottom: 1px solid #ddd;
         &:last-child {
             border-bottom: none;
@@ -449,7 +453,7 @@ header {
     border: 1px solid #ddd;
     border-top: none;
     .item {
-        min-height: 50px;
+        min-height: 48px;
         .item-title, .item-title a {
             font-size: 1rem;
         }

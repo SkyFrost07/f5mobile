@@ -3971,3 +3971,34 @@ a.ui-datepicker-next {
     clear: both;
   }
 }
+/*********** my custom *********/
+.type-checkbox {
+    max-height: 280px;
+    overflow: auto;
+    border-bottom: 1px solid #ddd;
+}
+.row {
+    clear: both;
+}
+.row:after {
+    content: "";
+    clear: both;
+    display: table;
+}
+[class^="col-"] {
+    padding-left: 10px;
+    padding-right: 10px;
+    float: left;
+}
+.row, [class^="col-"] {
+    box-sizing: border-box;
+}
+.col-50 {
+    width: 50%;
+}
+.col-30 {
+    width: 30%;
+}
+.col-70 {
+    width: 70%;
+}
