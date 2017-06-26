@@ -3,8 +3,5 @@
  * Template name: Blog
  */
 ?>
-<?php get_header(); ?>
 
-
-
-<?php get_footer(); ?>
+<?php include 'archive.php'; ?>

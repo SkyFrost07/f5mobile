@@ -170,6 +170,11 @@ function pl_theme_scripts() {
 
 add_action('wp_enqueue_scripts', 'pl_theme_scripts');
 
+add_action( 'admin_enqueue_scripts', 'pl_load_admin_style' );
+function pl_load_admin_style() {
+     wp_enqueue_style( 'admin_css', get_template_directory_uri() . '/css/admin-style.css', false, '1.0.0' );
+}
+
 //more theme function
 include_once 'include/pl_functions.php';
 

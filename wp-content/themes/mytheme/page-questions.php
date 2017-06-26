@@ -1,0 +1,95 @@
+<?php
+
+/* 
+ * Template name: Trang hỏi đáp
+ */
+
+get_header();
+?>
+
+<div class="container">
+    
+    <?php woocommerce_breadcrumb(); ?>
+    
+    <div class="row">
+        <div class="col-sm-8 col-md-9">
+            <form class="cat-top-search single-top-search" method="get" action="<?php echo home_url(); ?>">
+                <div class="form-group row">
+                    <div class="col-sm-9 mgb-5">
+                        <input type="hidden" name="post_type" value="hoi_dap" />
+                        <input class="form-control" name="s" type="text">
+                        <i class="icon fa fa-search"></i>
+                    </div>
+                    <div class="col-sm-3">
+                        <button type="submit" class="btn btn-block">Tìm kiếm</button>
+                    </div>
+                </div>
+            </form>
+            
+            <div class="bd-bt-box mgb-15"></div>
+            
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="mgb-20">
+                        <?php get_sidebar('question'); ?>
+                    </div>
+                </div>
+                
+                <div class="col-md-8">
+                    <div class="list-group question-cat-list questions-list">
+                        <div class="list-group-item list-group-header">
+                            <div class="normal-title text-uppercase">Câu hỏi mới nhất</div>
+                        </div>
+                        <?php
+                        query_posts([
+                            'post_type' => 'hoi_dap',
+                            'posts_per_page' => 10,
+                        ]);
+                        $current_time = current_time('timestamp');
+                        if (have_posts()):
+                        ?>
+                    
+                        <?php while(have_posts()):the_post(); ?>
+                        
+                        <a href="<?php the_permalink(); ?>" class="list-group-item">
+                            <div class="media">
+                                <div class="media-left pull-left thumb">
+                                    <?php the_post_thumbnail('thumbnail'); ?>
+                                </div>
+                                <div class="media-body">
+                                    <div class="small-title"><?php the_title(); ?></div>
+                                    <div class="item-meta">
+                                        <span class="author"><i><?php the_field('question_author') ?></i></span> | 
+                                        <span class="time"><?php echo human_time_diff(get_the_time('U'), $current_time) ?> trước</span>
+                                        <?php if (get_field('question_answer')) { ?>
+                                        | <span class="comment-count">Đã có trả lời</span>
+                                        <?php } ?>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <?php endwhile; wp_reset_query(); ?>
+                        
+                        <?php else: ?>
+                        <h4 class="pdt-15 normal-title">Chưa có câu hỏi nào</h4>
+                        <?php endif; ?>
+                    
+                    </div>
+                    
+                    <?php woocommerce_pagination(); ?>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-sm-4 col-md-3">
+            <div class="mgb-20">
+                <?php get_sidebar('question-right') ?>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+<?php get_footer(); ?>
+

@@ -149,7 +149,13 @@ include TEMPLATEPATH . '../include/nav_scroll_prod.php';
                                             <?php woocommerce_template_single_add_to_cart(); ?>
                                         </div>
                                         <div class="col-xs-6">
-                                            <a class="btn btn-block btn-main" href="<?php echo home_url().'/tra-gop' ?>">
+                                            <?php
+                                            $money = $product->get_sale_price();
+                                            if (!$money) {
+                                                $money = $product->get_regular_price();
+                                            }
+                                            ?>
+                                            <a class="btn btn-block btn-main" href="<?php echo home_url('tinh-tien-tra-gop') ?>?money=<?php echo $money ?>&product_id=<?php echo $product->id; ?>">
                                                 <strong>Trả góp lãi suất 0%</strong>
                                                 <?php $price_min_pay = pl_get_current_price($product->id, ot_get_option('percent_min_pay', 20)); ?>
                                                 <span>Từ <?php echo $price_min_pay; ?></span>
@@ -315,7 +321,7 @@ include TEMPLATEPATH . '../include/nav_scroll_prod.php';
                 <div class="checkout-box prod-add-to-cart">
                     <?php woocommerce_template_single_add_to_cart(); ?>
 
-                    <a class="btn btn-block btn-main" href="<?php echo home_url().'/tra-gop' ?>">
+                    <a class="btn btn-block btn-main" href="<?php echo home_url('tinh-tien-tra-gop') ?>?money=<?php echo $money ?>&product_id=<?php echo $product->id; ?>">
                         <strong>Trả góp lãi suất 0%</strong>
                         <span>Từ <?php echo $price_min_pay; ?></span>
                     </a>

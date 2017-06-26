@@ -46,7 +46,7 @@ get_header('shop');
                                     <input type="hidden" name="post_type" value="product" />
                                     <input type="hidden" name="taxonomy" value="product_acce" />
                                     <input class="form-control" name="s" type="text">
-                                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                                    <button type="submit" class="btn btn-default icon"><i class="fa fa-search"></i></button>
                                 </div>
                             </div>
                         </form>

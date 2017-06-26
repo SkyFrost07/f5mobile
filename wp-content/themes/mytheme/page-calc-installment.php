@@ -19,11 +19,20 @@ $month_max = 16;
 $interest = (float) ot_get_option('interest_percent', 0);
 
 if (have_posts()): while(have_posts()): the_post();
+
 $money = 10000000;
 if (isset($_GET['money'])) {
     $param_money = $_GET['money'];
     if (is_numeric($param_money)) {
         $money = $param_money;
+    }
+}
+
+$product_id = null;
+if (isset($_GET['product_id'])) {
+    $product_id = sanitize_text_field($_GET['product_id']);
+    if ($product_id) {
+        $product = wc_get_product($product_id);
     }
 }
 ?>
@@ -77,6 +86,32 @@ if (isset($_GET['money'])) {
             </div>
         </div>
     </div>
+    
+    <?php if ($product_id) { ?>
+    <div class="wrapper mgb-20">
+        <div class="row">
+            <div class="col-sm-8 col-md-9">
+                <h4 class="normal-title">Thông tin sản phẩm</h4>
+                <div class="items">
+                    <div class="item row">
+                        <div class="col-sm-4">
+                            <div class="thumb">
+                                <a href="<?php echo get_permalink($product_id) ?>"><?php echo get_the_post_thumbnail($product_id, 'shop_catalog', ['class' => 'img-responsive']); ?></a>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="item-body">
+                                <h5 class="item-title"><a style="font-size: 1.5rem;" href="<?php echo get_permalink($product_id) ?>"><?php echo get_the_title($product_id); ?></a></h5>
+                                <p class="price" style="min-height: 1px;"><?php echo wc_price($product->get_price()); ?></p>
+                                <div class="post_content" style="white-space: pre-line;"><?php echo $product->post->post_excerpt ?></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <?php } ?>
 
 <?php
 endwhile; endif;

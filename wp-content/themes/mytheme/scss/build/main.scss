@@ -203,12 +203,18 @@ header {
     input[type="text"] {
         border-radius: 5px;
     }
-    button {
+    button.icon, .icon {
         position: absolute;
         right: 8px;
         top: 0;
+        font-size: 14px;
         border: none;
+        padding: 6px 12px;
+        line-height: 1.42857143;
         background: transparent;
+        &:focus {
+            outline: none;
+        }
         &:hover, &:focus, &:active {
             background: transparent;
         }
@@ -219,6 +225,80 @@ header {
         font-weight: 400;
     }
 }
+.single-top-search {
+    font-size: 1.2rem;
+    input[type="text"] {
+        padding-left: 30px;
+        height: 40px;
+    }
+    .icon {
+        right: auto;
+        left: 8px;
+        color: #cccccc;
+        font-size: 17px;
+    }
+    button[type="submit"] {
+        background: $maincl;
+        color: #fff;
+        padding-top: 9px; padding-bottom: 9px;
+    }
+}
+.question-cat-list{
+    .list-group-header {
+        background: #f3f3f3;
+    }
+    .list-group-item {
+        border: 1px solid #f1f1f1;
+        &:not(.list-group-header) {
+            padding: 15px;
+        }
+        &:first-child, &:last-child {
+            border-radius: 0;
+        }
+        h4 {
+            font-size: 1.2rem; font-weight: 600;
+        }
+    }
+}
+.questions-list {
+    .list-group-item {
+        &:not(.list-group-header) {
+            padding: 10px;
+        }
+        div.small-title {
+            margin-bottom: 10px;
+        }
+        .thumb img {
+            max-width: 80px;
+        }
+    }
+}
+body.page-template-page-questions {
+    background: #fff;
+}
+.btn-add-post {
+    background: $maincl;
+    color: #fff;
+    &:hover {
+        color: #fff;
+        opacity: 0.8;
+    }
+}
+.btn-add-post, .btn-submit-post {
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.btn-submit-post {
+    &:hover {
+        background: $maincl;
+        color: #fff;
+    }
+}
+.error {
+    color: red;
+}
+
 #cl_menu {
     display: none;
     width: 100%; 
@@ -582,7 +662,7 @@ header {
 .media-posts {
     .item {
         .thumb img {
-           
+
         }
     }
 }
@@ -1013,7 +1093,7 @@ header {
     li {
         margin-bottom: 10px;
         img.avatar {
-           
+
         }
         .comment-text {
             border-radius: 0;
@@ -1284,4 +1364,7 @@ ol.commentlist {
     margin-left: -11px;
     top: -9px;
     border-radius: 50%;
+    &:focus {
+        outline: none;
+    }
 }

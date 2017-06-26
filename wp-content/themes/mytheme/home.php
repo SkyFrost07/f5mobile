@@ -44,9 +44,10 @@
                 <?php endif; wp_reset_query(); ?>
             </div>
         </div>
+        
         <div class="col-md-3" id="hom_news">
             <h3 class="tit-title text-uppercase">
-                <a href="#">
+                <a href="<?php echo home_url('chuyen-muc/blog'); ?>">
                     <strong><i class="fa fa-newspaper-o"></i> Tin tức</strong>
                     <span>Xem tiếp</span>
                 </a>
@@ -136,7 +137,6 @@
                         $termName = $productCat->name;
                     }
                     $termChilds = get_terms('product_cat', [
-                        'hide_empty' => 0,
                         'parent' => $prodCatId,
                         'orderby' => 'count',
                         'order' => 'DESC'
