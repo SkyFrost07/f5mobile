@@ -3,16 +3,7 @@
         <footer>
             <div id="footer_menu">
                 <div class="container">
-                    <ul class="menu">
-                        <li><a href="#">Giới thiệu</a></li>
-                        <li><a href="#">Chính sách vận chuyển</a></li>
-                        <li><a href="#">Chính sách đổi hàng</a></li>
-                        <li><a href="#">Chính sách bảo hành</a></li>
-                        <li><a href="#">Tính tiền trả góp</a></li>
-                        <li><a href="#">Kiểm tra đơn hàng online</a></li>
-                        <li><a href="#">Kiểm tra thông tin bảo hành</a></li>
-                        <li><a href="#">Shop name</a></li>
-                    </ul>
+                    <?php wp_nav_menu(['theme_location' => 'footer']); ?>
                 </div>
             </div>
 
@@ -20,36 +11,27 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-4 footer-col">
-                            <h3 class="foot-title"><a href="#"><img class="img-responsive" src="<?= get_template_directory_uri() ?>/images/logo.png"></a></h3>
+                            <h3 class="foot-title"><a href="<?php echo home_url(); ?>"><img class="img-responsive" src="<?= ot_get_option('pl_logo'); ?>"></a></h3>
                             <p class="ft-desc mgb-25">
-                                Shop name là thương hiệu bán lẻ smartphone được cộng đồng công nghệ ưa chuộng và đặc biệt khuyến cáo vì luôn luôn đảm bảo được cả 3 tiêu chí Hàng chất – Dịch vụ cao cấp – Giá hấp dẫn nhất.
+                                <?php echo ot_get_option('footer_desc'); ?>
                             </p>
+                            <?php 
+                            $socialItems = ot_get_option('social_items');
+                            if ($socialItems) {
+                            ?>
                             <div class="socials-row row">
+                                <?php foreach ($socialItems as $item) { ?>
                                 <div class="col-xs-6">
-                                    <a class="social-item" href="#">
-                                        <i class="fa fa-facebook"></i> 
-                                        <span class="text-uppercase">Facebook</span>
+                                    <a class="social-item" target="_blank" href="<?php echo $item['link'] ?>">
+                                        <i class="fa <?php echo $item['icon'] ?>"></i> 
+                                        <span class="text-uppercase"><?php echo $item['title'] ?></span>
                                     </a>
                                 </div>
-                                <div class="col-xs-6">
-                                    <a class="social-item" href="#">
-                                        <i class="fa fa-google-plus"></i> 
-                                        <span class="text-uppercase">Google+</span>
-                                    </a>
-                                </div>
-                                <div class="col-xs-6">
-                                    <a class="social-item" href="#">
-                                        <i class="fa fa-twitter"></i> 
-                                        <span class="text-uppercase">Twitter</span>
-                                    </a>
-                                </div>
-                                <div class="col-xs-6">
-                                    <a class="social-item" href="#">
-                                        <i class="fa fa-youtube"></i> 
-                                        <span class="text-uppercase">Youtube</span>
-                                    </a>
-                                </div>
+                                <?php } ?>
                             </div>
+                            <?php
+                            }
+                            ?>
                         </div>
                         <div class="col-md-3">
                             <h3 class="foot-title text-uppercase">Đăng ký nhận tin</h3>
@@ -73,31 +55,36 @@
                         </div>
                         <div class="col-md-2">
                             <h3 class="foot-title text-uppercase">Hỗ trợ khách hàng</h3>
+                            <?php 
+                            $suportPageIds = ot_get_option('footer_menu_support');
+                            $supportPages = new WP_Query([
+                                'post_type' => 'page',
+                                'post__in' => $suportPageIds
+                            ]);
+                            if ($supportPages->have_posts()):
+                            ?>
                             <ul class="list-unstyled">
-                                <li><a href="#">Hướng dẫn mua hàng trực tuyến</a></li>
-                                <li><a href="#">Hướng dẫn mua hàng trực tuyến</a></li>
-                                <li><a href="#">Hướng dẫn mua hàng trực tuyến</a></li>
-                                <li><a href="#">Hướng dẫn mua hàng trực tuyến</a></li>
-                                <li><a href="#">Hướng dẫn mua hàng trực tuyến</a></li>
-                                <li><a href="#">Hướng dẫn mua hàng trực tuyến</a></li>
+                                <?php while ($supportPages->have_posts()) : $supportPages->the_post(); ?>
+                                <li><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></li>
+                                <?php endwhile; ?>
                             </ul>
+                            <?php endif; $supportPages->reset_postdata(); ?>
                         </div>
                         <div class="col-md-3">
                             <h3 class="foot-title text-uppercase">Đi đến shop name</h3>
+                            <?php $addressList = ot_get_option('address_list'); ?>
+                            <?php if ($addressList) { ?>
                             <div class="address-list">
+                                <?php foreach ($addressList as $idx => $addr) { ?>
                                 <div class="address-item">
-                                    <div><strong>Cơ sở 1</strong>: Cầu Giấy - Hà Nội</div>
+                                    <div><strong>Cơ sở <?= $idx + 1 ?></strong>: <?= $addr['title'] ?></div>
                                     <div class="hotline text-center">
-                                        <a class="view-field" href="tel:09ds8af"><i class="fa fa-phone"></i> 0435344.45345</a>
+                                        <a class="view-field" href="tel:<?= $addr['hotline'] ?>"><i class="fa fa-phone"></i> <?= $addr['hotline'] ?></a>
                                     </div>
                                 </div>
-                                <div class="address-item">
-                                    <div><strong>Cơ sở 2</strong>: Đà Nẵng</div>
-                                    <div class="hotline text-center">
-                                        <a class="view-field" href="tel:09ds8af"><i class="fa fa-phone"></i> 0435344.45345</a>
-                                    </div>
-                                </div>
+                                <?php } ?>
                             </div>
+                            <?php } ?>
                             <div>
                                 <p><i>Xem shop trên bản đồ</i></p>
                                 <button type="button" class="view-field field-lg"><i class="fa fa-map"></i> Xem bản đồ</button>
@@ -111,24 +98,22 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-5">
-                            <p class="mgb-0 text-uppercase">Đơn Vị Chủ Quản: CÔNG TY TNHH XUẤT NHẬP KHẨU TNA VIỆT NAM. <br/>
-                            GPĐKKD Số: 0107056326</p>
+                            <?php echo ot_get_option('end_footer_desc'); ?>
                         </div>
                         <div class="col-md-4 text-center">
                             <div class="payments-list">
-                                <a href="#"><img src="<?= get_template_directory_uri() ?>/images/universal_payments.png"></a>
+                                <a href=""><img class="img-responsive" src="<?= ot_get_option('banner_payment'); ?>" alt="payment icon"></a>
                             </div>
                         </div>
                         <div class="col-md-3 text-right">
-                            <p>© 2013 -2015 <strong>Shop name</strong><br />
-                                Design By <strong>Company</strong></p>
-
-                            <p class="mgb-0">Coded By <strong>Pinla</strong></p>
+                            <?php echo ot_get_option('coppyright'); ?>
                         </div>
                     </div>
                 </div>
             </div>
         </footer>
+        
+        <?php echo ot_get_option('facebook_sdk_script') ?>
 
         <?php wp_footer(); ?>
     </body>

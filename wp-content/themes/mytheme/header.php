@@ -27,7 +27,7 @@
                     <div class="col-xs-4 col-md-3 logo-col">
                         <h1 class="logo">
                             <strong class="hidden"><?php bloginfo('name'); ?></strong>
-                            <a href="#"><img src="<?= get_template_directory_uri() ?>/images/logo.png" class="img-responsive" title="" alt="Logo"></a>
+                            <a href="<?php echo home_url(); ?>"><img src="<?php echo ot_get_option('pl_logo'); ?>" class="img-responsive" title="" alt="Logo"></a>
                         </h1>
                     </div>
                     <div class="col-xs-8 col-md-9 head-col">
@@ -54,16 +54,19 @@
                                         </div>
                                     </a>
                                     <?php if ($index == 3) { ?>
+                                        <?php
+                                        $addressList = ot_get_option('address_list');
+                                        if ($addressList) {
+                                        ?>
                                         <div class="pl-dropdown-menu dropdown-menu address-box">
+                                            <?php foreach ($addressList as $addr) { ?>
                                             <div class="address-item">
-                                                <div><i class="fa fa-map-marker"></i> aaa Cầu Giấy - Hà Nội</div>
-                                                <div><a href="tel:0000ds"><i class="fa fa-phone"></i> Hotline: 09482342342</a></div>
+                                                <div><i class="fa fa-map-marker"></i> <?php echo $addr['title'] ?></div>
+                                                <div><a href="tel:<?php echo $addr['hotline'] ?>"><i class="fa fa-phone"></i> Hotline: <?php echo $addr['hotline'] ?></a></div>
                                             </div>
-                                            <div class="address-item">
-                                                <div><i class="fa fa-map-marker"></i> bbb Cầu Giấy - Hà Nội</div>
-                                                <div><a href="tel:0000ds"><i class="fa fa-phone"></i> Hotline: 09482342342</a></div>
-                                            </div>
+                                            <?php } ?>
                                         </div>
+                                        <?php } ?>
                                     <?php } ?>
                                 </div>
                             </div>
@@ -79,25 +82,28 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xs-3 col-sm-4 col-md-5 col-lg-3 menu-col">
-                        <button class="btn pl-btn-menu hidden-xs">Iphone - Ipad - Phụ kiện <i class="fa fa-caret-down"></i></button>
+                        <a href="<?php echo home_url('san-pham'); ?>" class="btn pl-btn-menu hidden-xs">Iphone - Ipad - Phụ kiện <i class="fa fa-caret-down"></i></a>
                         <button class="btn pl-btn-menu visible-xs"><span class="fa fa-bars"></span> Menu</button>
                     </div>
                     <div class="col-xs-9 col-sm-8 col-md-7 col-lg-9 search-col">
-                        <div class="input-group search-group">
-                            <input type="text" name="" class="form-control" placeholder="Nhập tên sản phẩm bạn muốn tìm">
-                            <span class="input-group-btn">
-                                <button class="btn btn-default"><i class="fa fa-search"></i></button>
-                            </span>
-                        </div>
+                        <form method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+                            <div class="input-group search-group">
+                                <input type="text" name="s" class="form-control" placeholder="Nhập tên sản phẩm bạn muốn tìm">
+                                <span class="input-group-btn">
+                                    <input type="hidden" name="post_type" value="product" />
+                                    <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+                                </span>
+                            </div>
+                        </form>
                     </div>
                 </div>
                 <div id="cl_menu">
                     <div class="row">
                         <div class="col-md-6 menu-col">
-                            <?php wp_nav_menu(); ?>
+                            <?php wp_nav_menu(['theme_location' => 'primary']); ?>
                         </div>
                         <div class="col-md-6 banner-menu hidden-xs">
-                            <a href="#" target="_blank"><img class="img-responsive" src="<?= get_template_directory_uri() ?>/images/bg-menu-2-1.png"></a>
+                            <a href="#" target="_blank"><img class="img-responsive" src="<?= ot_get_option('banner_main_menu'); ?>" alt="banner"></a>
                         </div>
                     </div>
                 </div>

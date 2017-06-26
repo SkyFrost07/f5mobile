@@ -462,8 +462,34 @@ class WC_AJAX {
 			wp_die( -1 );
 		}
 
-		$i             = absint( $_POST['i'] );
 		$metabox_class = array();
+                
+                if ($_POST['taxonomy'] == '_all_') {
+                    // Array of defined attribute taxonomies
+                    $attribute_taxonomies = wc_get_attribute_taxonomies();
+                    
+                    if ( ! empty( $attribute_taxonomies ) ) {
+                        foreach ( $attribute_taxonomies as $i => $tax ) {
+                            $attribute     = new WC_Product_Attribute();
+
+                            $attribute->set_id( wc_attribute_taxonomy_id_by_name( sanitize_text_field( 'pa_' . $tax->attribute_name ) ) );
+                            $attribute->set_name( sanitize_text_field( 'pa_' . $tax->attribute_name ) );
+                            $attribute->set_visible( apply_filters( 'woocommerce_attribute_default_visibility', 1 ) );
+                            $attribute->set_variation( apply_filters( 'woocommerce_attribute_default_is_variation', 0 ) );
+                            
+                            if ( $attribute->is_taxonomy() ) {
+                                    $metabox_class[] = 'taxonomy';
+                                    $metabox_class[] = $attribute->get_name();
+                            }
+                            include( 'admin/meta-boxes/views/html-product-attribute.php' );
+                        }
+                    }
+                    
+                    wp_die();
+                }
+                
+                $i             = absint( $_POST['i'] );
+                
 		$attribute     = new WC_Product_Attribute();
 
 		$attribute->set_id( wc_attribute_taxonomy_id_by_name( sanitize_text_field( $_POST['taxonomy'] ) ) );

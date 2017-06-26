@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WordPress - 4.8.x package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2017-06-13 13:43:30+0000\n"
+"PO-Revision-Date: 2017-06-15 04:17:10+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -63,7 +63,7 @@ msgstr "Thêm Ảnh"
 #: wp-includes/widgets/class-wp-widget-media-audio.php:33
 msgctxt "label for button in the audio widget"
 msgid "Add Audio"
-msgstr "Thêm tệp Âm thanh"
+msgstr "Thêm tệp Audio"
 
 #: wp-includes/media.php:3118
 msgid "(no author)"
@@ -296,12 +296,6 @@ msgstr "Đổi Ảnh"
 msgid "Displays an image."
 msgstr "Hiển thị một hình ảnh."
 
-#: wp-includes/widgets/class-wp-widget-media-audio.php:198
-#: wp-includes/widgets/class-wp-widget-media-image.php:325
-#: wp-includes/widgets/class-wp-widget-media-video.php:241
-msgid "Unable to preview media due to an unknown error."
-msgstr "Không thể xem trước media vì lý do không xác định."
-
 #. translators: placeholder is audio extension
 #: wp-includes/widgets/class-wp-widget-media-audio.php:83
 msgid "URL to the %s audio source file"
@@ -355,6 +349,12 @@ msgstr "Thay Video"
 msgctxt "plugin"
 msgid "%s update failed"
 msgstr "Cập nhật %s thất bại"
+
+#: wp-includes/widgets/class-wp-widget-media-audio.php:198
+#: wp-includes/widgets/class-wp-widget-media-image.php:325
+#: wp-includes/widgets/class-wp-widget-media-video.php:241
+msgid "Unable to preview media due to an unknown error."
+msgstr "Không thể xem trước media vì lỗi không xác định."
 
 #. translators: 1: parameter, 2: minimum number
 #: wp-includes/rest-api.php:1111
@@ -2491,10 +2491,6 @@ msgstr "Lùi lại %1 giây"
 msgid "Video Player"
 msgstr "Trình chơi Video"
 
-#: wp-includes/script-loader.php:365
-msgid "Audio Player"
-msgstr "Trình chơi Âm thanh"
-
 #: wp-includes/script-loader.php:366
 msgid "Volume Slider"
 msgstr "Âm lượng Trình chiếu"
@@ -2506,6 +2502,10 @@ msgstr "Sử dụng các phím mũi tên Lên/Xuống để tăng hoặc giảm 
 #: wp-includes/script-loader.php:358 wp-includes/theme.php:1395
 msgid "Pause"
 msgstr "Tạm dừng"
+
+#: wp-includes/script-loader.php:365
+msgid "Audio Player"
+msgstr "Trình chơi Audio"
 
 #: wp-includes/class-wp-tax-query.php:663
 msgid "Inexistent terms."
@@ -4181,14 +4181,14 @@ msgstr "Loại bỏ ảnh quảng cáo"
 msgid "Remove video source"
 msgstr "Loại bỏ nguồn video"
 
-#: wp-includes/media-template.php:1051 wp-includes/media-template.php:1065
-msgid "Remove audio source"
-msgstr "Loại bỏ nguồn âm thanh"
-
 #: wp-includes/formatting.php:125
 msgctxt "Comma-separated list of replacement words in your language"
 msgid "&#8217;tain&#8217;t,&#8217;twere,&#8217;twas,&#8217;tis,&#8217;twill,&#8217;til,&#8217;bout,&#8217;nuff,&#8217;round,&#8217;cause,&#8217;em"
 msgstr "&#8217;tain&#8217;t,&#8217;twere,&#8217;twas,&#8217;tis,&#8217;twill,&#8217;til,&#8217;bout,&#8217;nuff,&#8217;round,&#8217;cause,&#8217;em"
+
+#: wp-includes/media-template.php:1051 wp-includes/media-template.php:1065
+msgid "Remove audio source"
+msgstr "Loại bỏ nguồn audio"
 
 #. translators: This is a comma-separated list of words that defy the syntax of
 #. quotations in normal use, for example...  'We do not have enough words yet'
@@ -4963,11 +4963,6 @@ msgctxt "post format archive title"
 msgid "Links"
 msgstr "Đường dẫn"
 
-#: wp-includes/general-template.php:1512
-msgctxt "post format archive title"
-msgid "Audio"
-msgstr "Âm thanh"
-
 #. translators: Category archive title. 1: Category name
 #: wp-includes/general-template.php:1480
 msgid "Category: %s"
@@ -5013,6 +5008,11 @@ msgstr "Trích dẫn"
 #: wp-includes/general-template.php:1483
 msgid "Tag: %s"
 msgstr "Thẻ: %s"
+
+#: wp-includes/general-template.php:1512
+msgctxt "post format archive title"
+msgid "Audio"
+msgstr "Audio"
 
 #: wp-includes/class-wp-editor.php:1123
 msgid "No color"
@@ -5356,18 +5356,6 @@ msgstr "Năm"
 msgid "There has been an error cropping your image."
 msgstr "Hiện đã có một lỗi cắt hình ảnh của bạn."
 
-#: wp-includes/media.php:3588
-msgid "Edit Audio Playlist"
-msgstr "Chỉnh sửa danh sách file âm thanh"
-
-#: wp-includes/media.php:3591
-msgid "Update audio playlist"
-msgstr "Cập nhật danh sách nhạc"
-
-#: wp-includes/media.php:3592
-msgid "Add to audio playlist"
-msgstr "Thêm vào danh sách nhạc"
-
 #: wp-includes/media.php:3593
 msgid "Add to Audio Playlist"
 msgstr "Thêm vào Danh sách nhạc"
@@ -5391,10 +5379,6 @@ msgctxt "table cell alignment attribute"
 msgid "None"
 msgstr "Không căn"
 
-#: wp-includes/media.php:3590
-msgid "Insert audio playlist"
-msgstr "Chèn danh sách file âm thanh"
-
 #: wp-includes/media-template.php:891
 msgid "Edit Original"
 msgstr "Sửa bản gốc"
@@ -5402,10 +5386,6 @@ msgstr "Sửa bản gốc"
 #: wp-includes/class-wp-editor.php:1012
 msgid "Font Family"
 msgstr "Phông chữ"
-
-#: wp-includes/media.php:3589
-msgid "&#8592; Cancel Audio Playlist"
-msgstr "&#8592; Hủy danh sách phát file âm thanh"
 
 #: wp-includes/media-template.php:959
 msgid "Custom Size"
@@ -5419,6 +5399,26 @@ msgstr "Liên kết lớp CSS"
 #: wp-includes/media-template.php:795
 msgid "Show Video List"
 msgstr "Hiển thị danh sách video"
+
+#: wp-includes/media.php:3588
+msgid "Edit Audio Playlist"
+msgstr "Chỉnh sửa Danh sách Audio"
+
+#: wp-includes/media.php:3590
+msgid "Insert audio playlist"
+msgstr "Chèn danh sách audio"
+
+#: wp-includes/media.php:3589
+msgid "&#8592; Cancel Audio Playlist"
+msgstr "&#8592; Hủy Danh sách audio"
+
+#: wp-includes/media.php:3591
+msgid "Update audio playlist"
+msgstr "Cập nhật danh sách audio"
+
+#: wp-includes/media.php:3592
+msgid "Add to audio playlist"
+msgstr "Thêm vào danh sách audio"
 
 #: wp-includes/class-wp-customize-widgets.php:709
 msgctxt "Move widget"
@@ -5761,10 +5761,6 @@ msgstr "Chọn ảnh"
 msgid "Audio Details"
 msgstr "Chi tiết Audio"
 
-#: wp-includes/media.php:3573
-msgid "Replace Audio"
-msgstr "Đổi audio"
-
 #: wp-includes/media.php:3574
 msgid "Add Audio Source"
 msgstr "Thêm nguồn audio"
@@ -5788,10 +5784,6 @@ msgstr "Thêm phụ đề"
 #: wp-includes/media.php:3586
 msgid "Drag and drop to reorder tracks."
 msgstr "Kéo và thả để sắp xếp danh sách bài hát"
-
-#: wp-includes/media.php:3587
-msgid "Create Audio Playlist"
-msgstr "Tạo danh sách chơi audio"
 
 #: wp-includes/media.php:3601
 msgid "Update video playlist"
@@ -5889,6 +5881,14 @@ msgstr "Gợi ý: Mật khẩu phải có ít nhất 12 ký tự. Để nâng ca
 #: wp-includes/wp-db.php:1297
 msgid "The query argument of %s must have a placeholder."
 msgstr "Truy vấn của %s phải có placehoder."
+
+#: wp-includes/media.php:3587
+msgid "Create Audio Playlist"
+msgstr "Tạo Danh sách Audio"
+
+#: wp-includes/media.php:3573
+msgid "Replace Audio"
+msgstr "Đổi Audio"
 
 #: wp-includes/class-wp-editor.php:1129
 msgid "Could not find the specified string."
@@ -6587,15 +6587,6 @@ msgstr "Đang tải lên"
 msgid "Manage Images"
 msgstr "Quản lý hình ảnh"
 
-#: wp-includes/post.php:2288
-msgid "Manage Audio"
-msgstr "Quản lý âm thanh"
-
-#: wp-includes/post.php:2288
-msgid "Audio <span class=\"count\">(%s)</span>"
-msgid_plural "Audio <span class=\"count\">(%s)</span>"
-msgstr[0] "Âm thanh <span class=\"count\">(%s)</span>"
-
 #: wp-includes/post.php:2289
 #: wp-includes/widgets/class-wp-widget-media-video.php:26
 msgid "Video"
@@ -6615,6 +6606,15 @@ msgid "Image <span class=\"count\">(%s)</span>"
 msgid_plural "Images <span class=\"count\">(%s)</span>"
 msgstr[0] "Hình ảnh <span class=\"count\">(%s)</span>"
 
+#: wp-includes/post.php:2288
+msgid "Manage Audio"
+msgstr "Quản lý Audio"
+
+#: wp-includes/post.php:2288
+msgid "Audio <span class=\"count\">(%s)</span>"
+msgid_plural "Audio <span class=\"count\">(%s)</span>"
+msgstr[0] "Audio <span class=\"count\">(%s)</span>"
+
 #: wp-includes/post.php:1385
 msgid "Insert into page"
 msgstr "Chèn vào trang"
@@ -6627,14 +6627,14 @@ msgstr "Đã tải lên vào trang này"
 msgid "Uploaded to this post"
 msgstr "Đã tải lên vào bài này"
 
-#: wp-includes/post.php:2288
-#: wp-includes/widgets/class-wp-widget-media-audio.php:26
-msgid "Audio"
-msgstr "Âm thanh"
-
 #: wp-includes/media.php:3511
 msgid "All media items"
 msgstr "Tất cả"
+
+#: wp-includes/post.php:2288
+#: wp-includes/widgets/class-wp-widget-media-audio.php:26
+msgid "Audio"
+msgstr "Audio"
 
 #: wp-includes/media.php:3510
 msgid "&#8592; Return to library"
@@ -6779,13 +6779,13 @@ msgstr "Trang nội dung đính kèm"
 msgid "Describe this video&hellip;"
 msgstr "Mô tả nội dung video này&hellip;"
 
-#: wp-includes/media-template.php:491
-msgid "Describe this audio file&hellip;"
-msgstr "Mô tả nội dung tập tin âm thanh này&hellip;"
-
 #: wp-includes/media-template.php:493
 msgid "Describe this media file&hellip;"
 msgstr "Mô tả nội dung tập tin đa phương tiện này&hellip;"
+
+#: wp-includes/media-template.php:491
+msgid "Describe this audio file&hellip;"
+msgstr "Mô tả nội dung tập tin audio này&hellip;"
 
 #: wp-includes/media.php:3549
 msgid "Update gallery"

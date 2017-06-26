@@ -66,6 +66,7 @@ define('NONCE_SALT',       '}Qx*-1xE%$Z$<9N=d}~ut5%$;6?KXnOqfB@+V2v^Z}yw>TO>:4u~
 /** custom define **/
 define( 'AUTOMATIC_UPDATER_DISABLED', true );
 define( 'WP_AUTO_UPDATE_CORE', false );
+//define('AUTOSAVE_INTERVAL', 600 );
 define('WP_POST_REVISIONS', false );
 
 /**

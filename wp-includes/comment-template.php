@@ -1620,7 +1620,7 @@ function get_comment_reply_link( $args = array(), $comment = null, $post = null 
 	if ( ! comments_open( $post->ID ) ) {
 		return false;
 	}
-
+        
 	/**
 	 * Filters the comment reply link arguments.
 	 *

@@ -1,39 +1,58 @@
-<aside>
+<?php
 
-    <?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('Sidebar Widgets')) : else : ?>
-    
-        <!-- All this stuff in here only shows up if you DON'T have any widgets active in this zone -->
+$sidebar_cat_opts = ot_get_option('sidebar_cat_ids');
+if ($sidebar_cat_opts) {
 
-    	<?php get_search_form(); ?>
+    $cat_options = [];
+    $sidebar_cat_ids = [];
+    foreach ($sidebar_cat_opts as $key => $item) {
+        $cat_options[$item['cat_id']]['title'] = $item['title'];
+        $cat_options[$item['cat_id']]['per_page'] = $item['per_page'];
+        array_push($sidebar_cat_ids, $item['cat_id']);
+    } 
     
-    	<?php wp_list_pages('title_li=<h2>Pages</h2>' ); ?>
+    $sidebar_cats = get_terms([
+        'taxonomy' => 'category',
+        'hide_empty' => 0,
+        'include' => $sidebar_cat_ids
+    ]);
     
-    	<h2>Archives</h2>
-    	<ul>
-    		<?php wp_get_archives('type=monthly'); ?>
-    	</ul>
-        
-        <h2>Categories</h2>
-        <ul>
-    	   <?php wp_list_categories('show_count=1&title_li='); ?>
-        </ul>
-        
-    	<?php wp_list_bookmarks(); ?>
-    
-    	<h2>Meta</h2>
-    	<ul>
-    		<?php wp_register(); ?>
-    		<li><?php wp_loginout(); ?></li>
-    		<li><a href="http://wordpress.org/" title="Powered by WordPress, state-of-the-art semantic personal publishing platform.">WordPress</a></li>
-    		<?php wp_meta(); ?>
-    	</ul>
-    	
-    	<h2>Subscribe</h2>
-    	<ul>
-    		<li><a href="<?php bloginfo('rss2_url'); ?>">Entries (RSS)</a></li>
-    		<li><a href="<?php bloginfo('comments_rss2_url'); ?>">Comments (RSS)</a></li>
-    	</ul>
-	
-	<?php endif; ?>
+    if ($sidebar_cats) {
+        foreach ($sidebar_cats as $cat) {
+            $box_title = isset($cat_options[$cat->term_id]) ? $cat_options[$cat->term_id]['title'] : $cat->name;
+            ?>
+            <div class="sidbar-cat-box mgb-20">
+                <h3 class="normal-title"><?php echo $box_title; ?></h3>
+                <?php
+                query_posts([
+                    'post_type' => 'post',
+                    'cat' => $cat->term_id,
+                    'posts_per_page' => isset($cat_options[$cat->term_id]) ? $cat_options[$cat->term_id]['per_page'] : 5
+                ]);
+                if (have_posts()):
+                ?>
+                <div class="items media-items">
+                    <?php while(have_posts()) : the_post(); ?>
+                    <div class="item media">
+                        <div class="thumb media-left pull-left">
+                            <a href="<?php the_permalink() ?>"><?php the_post_thumbnail('thumbnail', ['class' => 'img-responsive']); ?></a>
+                        </div>
+                        <div class="item-body media-body">
+                            <h4 class="item-title"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
+                        </div>
+                    </div>
+                    <?php endwhile; wp_reset_query(); ?>
+                </div>
+                <div class="more-box mgt-10">
+                    <a href="<?php echo get_category_link($cat); ?>">Xem thêm những <?php echo $box_title ?> khác</a>
+                </div>
+                <?php
+                endif;
+                ?>
+            </div>
+            <?php
+        }
+    }
+}
 
-</aside>
+?>

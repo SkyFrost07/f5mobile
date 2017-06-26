@@ -10,7 +10,7 @@
 				<tr>
 					<td class="attribute_name">
 						<label><?php _e( 'Name', 'woocommerce' ); ?>:</label>
-
+                                                
 						<?php if ( $attribute->is_taxonomy() ) : ?>
 							<strong><?php echo esc_html( wc_attribute_label( $attribute->get_name() ) ); ?></strong>
 							<input type="hidden" name="attribute_names[<?php echo $i; ?>]" value="<?php echo esc_attr( $attribute->get_name() ); ?>" />

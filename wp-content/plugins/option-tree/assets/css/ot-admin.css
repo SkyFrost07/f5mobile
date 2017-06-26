@@ -3977,28 +3977,12 @@ a.ui-datepicker-next {
     overflow: auto;
     border-bottom: 1px solid #ddd;
 }
-.row {
-    clear: both;
+.format-setting-label {
+    margin-bottom: 5px;
 }
-.row:after {
-    content: "";
-    clear: both;
-    display: table;
+.format-setting-label h3 {
+    margin-bottom: 0px; margin-top: 0px;
 }
-[class^="col-"] {
-    padding-left: 10px;
-    padding-right: 10px;
-    float: left;
-}
-.row, [class^="col-"] {
-    box-sizing: border-box;
-}
-.col-50 {
-    width: 50%;
-}
-.col-30 {
-    width: 30%;
-}
-.col-70 {
-    width: 70%;
+.format-setting-wrap, .option-tree-sortable .format-settings {
+    padding-top: 5px; padding-bottom: 5px;
 }

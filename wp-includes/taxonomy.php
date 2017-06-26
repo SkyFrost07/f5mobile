@@ -254,7 +254,7 @@ function get_taxonomy( $taxonomy ) {
  */
 function taxonomy_exists( $taxonomy ) {
 	global $wp_taxonomies;
-
+        
 	return isset( $wp_taxonomies[$taxonomy] );
 }
 

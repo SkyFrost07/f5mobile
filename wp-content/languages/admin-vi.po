@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WordPress - 4.8.x - Administration package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2017-06-10 15:33:30+0000\n"
+"PO-Revision-Date: 2017-06-15 11:24:18+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -225,6 +225,10 @@ msgstr "Nhà phát triển hạnh phúc hơn %s"
 #: wp-admin/users.php:167 wp-admin/users.php:207
 msgid "Sorry, you are not allowed to delete users."
 msgstr "Xin lỗi, bạn không có quyền xóa người dùng."
+
+#: wp-admin/user-new.php:23 wp-admin/user-new.php:117
+msgid "Sorry, you are not allowed to create users."
+msgstr "Xin lỗi, bạn không được phép tạo người dùng."
 
 #: wp-admin/customize.php:163
 msgid "The Customizer allows you to preview changes to your site before publishing them. You can navigate to different pages on your site within the preview. Edit shortcuts are shown for some editable elements."
@@ -466,9 +470,9 @@ msgstr "Sự tìm kiếm cho các gói mở rộng đã được cài đặt s�
 msgid "Custom Logo"
 msgstr "Tùy chỉnh Logo"
 
-#: wp-admin/user-new.php:23 wp-admin/user-new.php:117
-msgid "Sorry, you are not allowed to create users."
-msgstr "Xin lỗi, bạn không được phép tạo người dùng."
+#: wp-admin/users.php:317 wp-admin/users.php:348
+msgid "Sorry, you are not allowed to remove users."
+msgstr "Xin lỗi, bạn không được phép xoá người dùng."
 
 #: wp-admin/user-new.php:16 wp-admin/user-new.php:56
 msgid "Sorry, you are not allowed to add users to this network."
@@ -660,10 +664,6 @@ msgstr "Việc này sẽ thay thế bộ soạn thảo nội dung hiện tại v
 #: wp-admin/includes/template.php:1523
 msgid "Close media attachment panel"
 msgstr "Đóng bảng đính kèm tệp tin đa phương tiện."
-
-#: wp-admin/users.php:317 wp-admin/users.php:348
-msgid "Sorry, you are not allowed to remove users."
-msgstr "Xin lỗi, bạn không có quyền xóa người dùng."
 
 #: wp-admin/includes/ms.php:1096
 msgid "Info"
@@ -1035,7 +1035,7 @@ msgstr "chọn chiều rộng"
 
 #: wp-admin/includes/image-edit.php:122
 msgid "crop ratio height"
-msgstr "Cắt tỷ lệ chiều cao"
+msgstr "cắt tỷ lệ chiều cao"
 
 #: wp-admin/includes/image-edit.php:118
 msgid "crop ratio width"
@@ -1105,7 +1105,7 @@ msgstr[0] "%s bình luận trong chế độ kiểm duyệt"
 
 #: wp-admin/includes/class-core-upgrader.php:31
 msgid "Another update is currently in progress."
-msgstr "Cập nhật khác đang được xử lý"
+msgstr "Một tác vụ cập nhật khác đang được chạy."
 
 #: wp-admin/includes/class-plugin-upgrader-skin.php:46
 #: wp-admin/update-core.php:686 wp-admin/update-core.php:720
@@ -1169,7 +1169,7 @@ msgstr "Đính kèm &#8220;%s&#8221; vào nội dung hiện tại"
 #. translators: %s: title of the post the attachment is attached to
 #: wp-admin/includes/class-wp-media-list-table.php:501
 msgid "Detach from &#8220;%s&#8221;"
-msgstr "Xóa bỏ từ &#8220;%s&#8221;"
+msgstr "Xóa tập đính kèm khỏi &#8220;%s&#8221;"
 
 #. translators: %s: attachment title
 #. translators: %s: post title
@@ -1851,7 +1851,7 @@ msgstr "Bình luận (%1$s) trên &#8220;%2$s&#8221;"
 
 #: wp-admin/custom-header.php:893
 msgid "The current theme does not support a flexible sized header image."
-msgstr "Các chủ đề hiện tại không hỗ trợ một hình ảnh kích thước tiêu đề linh hoạt."
+msgstr "Theme hiện tại không hỗ trợ kích thước ảnh đầu trang linh hoạt."
 
 #: wp-admin/custom-header.php:727 wp-admin/custom-header.php:885
 msgid "The current theme does not support uploading a custom header image."
@@ -4151,11 +4151,11 @@ msgstr "Những thay đổi mới nhất của bạn đã được lưu lại."
 
 #: wp-admin/includes/media.php:2952
 msgid "Audio Codec:"
-msgstr "Bộ Mã Hóa Âm Thanh:"
+msgstr "Bộ Mã Hóa Audio:"
 
 #: wp-admin/includes/media.php:2951
 msgid "Audio Format:"
-msgstr "Định Dạng Âm Thanh:"
+msgstr "Định Dạng Audio:"
 
 #. translators: Audio file genre information. 1: Audio genre name
 #: wp-admin/includes/media.php:353
@@ -5813,7 +5813,7 @@ msgstr "Chèn nội dung đa phương tiện từ trang mạng khác"
 
 #: wp-admin/includes/media.php:2568
 msgid "Audio, Video, or Other File"
-msgstr "Âm Thanh, Phim hoặc Tập Tin Khác"
+msgstr "Audio, Video hoặc Tập Tin Khác"
 
 #: wp-admin/options.php:160
 msgid "<strong>ERROR</strong>: options page not found."
@@ -9938,7 +9938,7 @@ msgstr "Trang chương trình đính kèm mẫu"
 
 #: wp-admin/includes/file.php:43
 msgid "Audio Attachment Template"
-msgstr "Trang nhạc đính kèm mẫu"
+msgstr "Mẫu Audio Đính kèm"
 
 #: wp-admin/includes/file.php:42
 msgid "Video Attachment Template"

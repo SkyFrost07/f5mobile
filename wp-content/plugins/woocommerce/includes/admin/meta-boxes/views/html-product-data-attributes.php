@@ -5,6 +5,7 @@
 		</span>
 		<select name="attribute_taxonomy" class="attribute_taxonomy">
 			<option value=""><?php _e( 'Custom product attribute', 'woocommerce' ); ?></option>
+                        <option value="_all_">**<?php _e('Thêm tất cả', 'pl-theme'); ?>**</option>
 			<?php
 				global $wc_product_attributes;
 
