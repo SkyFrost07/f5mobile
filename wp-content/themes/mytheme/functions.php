@@ -190,6 +190,18 @@ function pl_load_admin_style() {
      wp_enqueue_style( 'admin_css', get_template_directory_uri() . '/css/admin-style.css', false, '1.0.0' );
 }
 
+remove_action('load-update-core.php','wp_update_plugins');
+add_filter('pre_site_transient_update_plugins','__return_null');
+
+add_filter( 'admin_post_thumbnail_size', function ( $size, $thumbnail_id, $post ) {
+    if ($post->post_type == 'slider') {
+        $sizes = get_intermediate_image_sizes();
+        $result = array_search( 'slide', $sizes );
+        $size = is_numeric( $result ) ? $sizes[ $result ] : array( 300, 200 );
+    }
+    return $size;
+}, 10, 3 );
+
 //more theme function
 include_once 'include/pl_functions.php';
 
