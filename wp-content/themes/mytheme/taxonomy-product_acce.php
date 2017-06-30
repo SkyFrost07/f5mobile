@@ -45,7 +45,7 @@ get_header('shop');
                                 <div class="col-sm-8 col-md-9">
                                     <input type="hidden" name="post_type" value="product" />
                                     <input type="hidden" name="taxonomy" value="product_acce" />
-                                    <input class="form-control" name="s" type="text">
+                                    <input class="form-control" name="s" type="text" placeholder="Nhập tên phụ kiện, sản phẩm">
                                     <button type="submit" class="btn btn-default icon"><i class="fa fa-search"></i></button>
                                 </div>
                             </div>
@@ -71,8 +71,8 @@ get_header('shop');
                     </div>
 
                     <div class="col-md-5">
-                        <p>Đổi trả miễn phí 30 ngày<br />
-                        Bảo hành 1 đổi 1 trong vòng 1 năm. Không áp dụng cho ốp lưng, bao da</p>
+                        <p>Đổi trả miễn phí 30 ngày (<a href="<?php echo home_url('chinh-sach/chinh-sach-doi-tra-hang'); ?>">xem chi tiết</a>)<br />
+                            Bảo hành 1 đổi 1 trong vòng 1 năm. Không áp dụng cho ốp lưng, bao da (<a href="<?php echo home_url('chinh-sach/chinh-sach-bao-hanh') ?>">xem chi tiết</a>)</p>
                     </div>
                 </div>
                 

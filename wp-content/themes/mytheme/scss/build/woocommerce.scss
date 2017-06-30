@@ -304,3 +304,22 @@
         }
     }
 }
+#content_galaries_image {
+    background: #f1f1f1;
+    position: relative;
+    .owl-dots {
+        position: absolute;
+        right: 20px;
+        bottom: 10%;
+        .owl-dot span {
+            width: 13px;
+            height: 13px;
+        }
+        .owl-dot.active {
+            span {background: $maincl;}
+        }
+    }
+}
+.prod-rating {
+    
+}

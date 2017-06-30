@@ -170,7 +170,13 @@ include TEMPLATEPATH . '../include/nav_scroll_prod.php';
                                 ?>
                                 
                                 <div class="prod-rating">
-                                    <?php woocommerce_template_single_rating(); ?>
+                                    <?php // woocommerce_template_single_rating(); ?>
+                                    <p>Bạn thấy chất lượng sản phẩm của chúng tôi như thế nào?</p>
+                                    <?php 
+                                    if(function_exists("kk_star_ratings")) : 
+                                        echo kk_star_ratings(); 
+                                    endif; 
+                                    ?>
                                 </div>
                             </div>
                         </div>
@@ -203,6 +209,11 @@ include TEMPLATEPATH . '../include/nav_scroll_prod.php';
         <!--content product-->
         <div class="row">
             <div class="col-md-8 prod-content-single">
+                <h3 class="medium-title"><?php the_title(); ?></h3>
+                <div id="content_galaries_image" class="owl-carousel owl-theme mgb-20">
+                    <?php wc_get_template('single-product/product-thumbnails.php'); ?>
+                </div>
+                
                 <?php woocommerce_product_description_tab(); ?>
             </div>
             <div class="col-md-4">

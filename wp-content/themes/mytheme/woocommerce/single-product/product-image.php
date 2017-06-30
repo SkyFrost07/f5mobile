@@ -43,7 +43,7 @@ $wrapper_classes   = apply_filters( 'woocommerce_single_product_image_gallery_cl
 			'data-large_image_width'  => $full_size_image[1],
 			'data-large_image_height' => $full_size_image[2],
 		);
-
+                
 		if ( has_post_thumbnail() ) {
 			$html  = '<div data-thumb="' . get_the_post_thumbnail_url( $post->ID, 'shop_thumbnail' ) . '" class="woocommerce-product-gallery__image"><a href="' . esc_url( $full_size_image[0] ) . '">';
 			$html .= get_the_post_thumbnail( $post->ID, 'shop_single', $attributes );
@@ -54,7 +54,7 @@ $wrapper_classes   = apply_filters( 'woocommerce_single_product_image_gallery_cl
 			$html .= '</div>';
 		}
 
-		echo apply_filters( 'woocommerce_single_product_image_thumbnail_html', $html, get_post_thumbnail_id( $post->ID ) );
+//		echo apply_filters( 'woocommerce_single_product_image_thumbnail_html', $html, get_post_thumbnail_id( $post->ID ) );
 
 		do_action( 'woocommerce_product_thumbnails' );
 		?>

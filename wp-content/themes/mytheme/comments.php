@@ -64,11 +64,11 @@
 
                         <div class="row">
                             <div class="col-sm-6 form-group">
-                                <input type="text" name="author" id="author" value="<?php echo esc_attr($comment_author); ?>" class="form-control" <?php if ($req) echo "aria-required='true'"; ?> />
+                                <input type="text" name="author" id="author" value="<?php echo esc_attr($comment_author); ?>" class="form-control" <?php if ($req) echo "aria-required='true'"; ?> placeholder="Họ tên" />
                             </div>
 
                             <div class="col-sm-6 form-group">
-                                <input type="text" name="email" id="email" value="<?php echo esc_attr($comment_author_email); ?>" class="form-control"  <?php if ($req) echo "aria-required='true'"; ?> />
+                                <input type="text" name="email" id="email" value="<?php echo esc_attr($comment_author_email); ?>" class="form-control"  <?php if ($req) echo "aria-required='true'"; ?> placeholder="Email" />
                             </div>
                         </div>
 
@@ -77,7 +77,7 @@
 		<!--<p>You can use these tags: <code><?php echo allowed_tags(); ?></code></p>-->
 
                 <div class="form-group">
-                    <textarea name="comment" id="comment" rows="4" class="form-control"></textarea>
+                    <textarea name="comment" id="comment" rows="4" class="form-control" placeholder="Bình luận"></textarea>
 		</div>
 
 		<div>

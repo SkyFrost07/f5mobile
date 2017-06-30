@@ -34,24 +34,9 @@
                             ?>
                         </div>
                         <div class="col-md-3">
-                            <h3 class="foot-title text-uppercase">Đăng ký nhận tin</h3>
-                            <p class="ft-desc">
-                                Hãy điền email và đăng ký nhận bản tin từ Shop name. Chúng tôi sẽ gửi các thông tin khuyến mại qua email cho khách hàng!
-                            </p>
-
-                            <form>
-                                <div class="form-group">
-                                    <label>Name</label>
-                                    <input type="text" name="" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label>Email*</label>
-                                    <input type="email" name="" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <button class="btn btn-default bg-default no-border">Subscribe</button>
-                                </div>
-                            </form>
+                            
+                            <?php dynamic_sidebar('subscribe'); ?>
+                            
                         </div>
                         <div class="col-md-2">
                             <h3 class="foot-title text-uppercase">Hỗ trợ khách hàng</h3>
@@ -87,7 +72,7 @@
                             <?php } ?>
                             <div>
                                 <p><i>Xem shop trên bản đồ</i></p>
-                                <button type="button" class="view-field field-lg"><i class="fa fa-map"></i> Xem bản đồ</button>
+                                <button type="button" data-toggle="modal" data-target="#map_modal" class="view-field field-lg"><i class="fa fa-map"></i> Xem bản đồ</button>
                             </div>
                         </div>
                     </div>
@@ -112,6 +97,22 @@
                 </div>
             </div>
         </footer>
+        
+        <a href="#" id="totop" class="hidden"><i class="fa fa-caret-up"></i></a>
+        
+        <div class="modal fade" tabindex="-1" role="dialog" id="map_modal">
+            <div class="modal-dialog modal-lg" role="document" style="margin-top: 160px;">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Bản đồ</h4>
+                    </div>
+                    <div class="modal-body">
+                        <?php echo ot_get_option('google_map_embed'); ?>
+                    </div>
+                </div>
+            </div>
+        </div>
         
         <?php echo ot_get_option('facebook_sdk_script') ?>
 

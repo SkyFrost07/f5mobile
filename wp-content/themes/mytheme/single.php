@@ -13,7 +13,7 @@
     ?>
     
     <div class="row">
-        <div class="col-sm-8">
+        <div class="col-sm-8 col-md-9">
             <div class="wrapper mgb-20">
                 <?php while(have_posts()): the_post(); ?>
                 
@@ -22,6 +22,14 @@
                 
                 <div class="post_content">
                     <?php the_content(); ?>
+                </div>
+                
+                <div class="mgb-15">
+                    <?php 
+                    if(function_exists("kk_star_ratings")) : 
+                        echo kk_star_ratings(); 
+                    endif; 
+                    ?>
                 </div>
                 
                 <div class="post-sharing">
@@ -75,7 +83,7 @@
             </div>
         </div>
             
-        <div class="col-sm-4">
+        <div class="col-sm-4 col-md-3">
             <div class="wrapper mgb-20">
                 <?php get_sidebar(); ?>
             </div>

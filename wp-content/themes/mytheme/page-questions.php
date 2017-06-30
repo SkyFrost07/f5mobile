@@ -13,18 +13,7 @@ get_header();
     
     <div class="row">
         <div class="col-sm-8 col-md-9">
-            <form class="cat-top-search single-top-search" method="get" action="<?php echo home_url(); ?>">
-                <div class="form-group row">
-                    <div class="col-sm-9 mgb-5">
-                        <input type="hidden" name="post_type" value="hoi_dap" />
-                        <input class="form-control" name="s" type="text">
-                        <i class="icon fa fa-search"></i>
-                    </div>
-                    <div class="col-sm-3">
-                        <button type="submit" class="btn btn-block">Tìm kiếm</button>
-                    </div>
-                </div>
-            </form>
+            <?php include 'include/question_searchform.php'; ?>
             
             <div class="bd-bt-box mgb-15"></div>
             

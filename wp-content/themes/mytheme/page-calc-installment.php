@@ -100,7 +100,7 @@ if (isset($_GET['product_id'])) {
                             </div>
                         </div>
                         <div class="col-sm-8">
-                            <div class="item-body">
+                            <div class="item-body prod-excerpt-box">
                                 <h5 class="item-title"><a style="font-size: 1.5rem;" href="<?php echo get_permalink($product_id) ?>"><?php echo get_the_title($product_id); ?></a></h5>
                                 <p class="price" style="min-height: 1px;"><?php echo wc_price($product->get_price()); ?></p>
                                 <div class="post_content" style="white-space: pre-line;"><?php echo $product->post->post_excerpt ?></div>

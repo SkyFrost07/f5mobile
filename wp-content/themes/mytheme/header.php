@@ -6,6 +6,7 @@
     <?php if (is_search()) { ?>
        <meta name="robots" content="noindex, nofollow" /> 
     <?php } ?>
+       <link rel="shortcut icon" href="<?php echo ot_get_option('_favicon'); ?>">
 
     <title><?php pl_head_title(); ?></title>
 

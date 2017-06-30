@@ -15,6 +15,36 @@ if (!function_exists('pl_excerpt')) {
 
 }
 
+if (!function_exists('pl_add_post_view')) {
+    
+    function pl_add_post_view ($post_id = null) {
+        if (!$post_id) {
+            $post_id = get_the_ID();
+        }
+        $view = get_post_meta($post_id, '_post_views', true);
+        if (!$view) {
+            $view = 0;
+        }
+        update_post_meta($post_id, '_post_views', ($view + 1));
+    }
+    
+}
+
+if (!function_exists('pl_get_post_view')) {
+    
+    function pl_get_post_view ($post_id = null) {
+        if (!$post_id) {
+            $post_id = get_the_ID();
+        }
+        $view = (int) get_post_meta($post_id, '_post_views', true);
+        if (!$view) {
+            return 0;
+        }
+        return number_format($view, 0, ',', '.');
+    }
+    
+}
+
 function pl_filter_post_thumbnail_html( $html ) {
     if ( '' == $html ) {
         return '<img src="' . get_template_directory_uri() . '/images/default.jpg" class="img-responsive" />';
@@ -280,10 +310,19 @@ function pl_special_title ($title = null) {
 //}
 
 function pl_template_chooser($template) {
-    if (isset($_GET['s']) && isset($_GET['taxonomy'])) {
-        $taxonomy = sanitize_text_field($_GET['taxonomy']);
-        if ($taxonomy == 'product_acce') {
-            return TEMPLATEPATH . '/taxonomy-product_acce.php';
+    if (isset($_GET['s'])) {
+        if (isset($_GET['taxonomy'])) {
+            $taxonomy = sanitize_text_field($_GET['taxonomy']);
+            if ($taxonomy == 'product_acce') {
+                return TEMPLATEPATH . '/taxonomy-product_acce.php';
+            }
+        }
+        
+        if (isset($_GET['post_type'])) {
+            $post_type = $_GET['post_type'];
+            if ($post_type == 'hoi_dap') {
+                return TEMPLATEPATH . '/taxonomy-question_cat.php';
+            }
         }
     }
     return $template;

@@ -240,12 +240,12 @@ header {
     button[type="submit"] {
         background: $maincl;
         color: #fff;
-        padding-top: 9px; padding-bottom: 9px;
+        padding-top: 6px; padding-bottom: 6px;
     }
 }
 .question-cat-list{
     .list-group-header {
-        background: #f3f3f3;
+        background: #e8e8e8;
     }
     .list-group-item {
         border: 1px solid #f1f1f1;
@@ -257,6 +257,15 @@ header {
         }
         h4 {
             font-size: 1.2rem; font-weight: 600;
+        }
+    }
+}
+.sidebar-list {
+    .list-group-item.active, .list-group-item:focus {
+        background: #fff;
+        color: $maincl;
+        .list-group-item-text {
+            color: #333;
         }
     }
 }
@@ -273,7 +282,35 @@ header {
         }
     }
 }
-body.page-template-page-questions {
+.single-header {
+    .media-left img {
+        width: 40px;
+        border-radius: 50%;
+    }
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+}
+.question_content {
+    padding: 15px;
+    background: #f3f3f3;
+}
+.question-title {
+    font-size: 1.7rem;
+    margin-bottom: 20px;
+}
+.answer-title {
+    font-size: 1.3rem;
+}
+.answer_content {
+    font-size: 1.2rem;
+    p {
+        line-height: 2rem;
+    }
+}
+body.page-template-page-questions, 
+body.tax-question_cat, 
+body.single-hoi_dap,
+body.post-type-archive-hoi_dap {
     background: #fff;
 }
 .btn-add-post {
@@ -1065,6 +1102,28 @@ body.page-template-page-questions {
     }
 }
 /******* end cat page **********/
+.policies_list {
+    text-align: center;
+    .policy-item {
+        margin-bottom: 20px;
+        .thumb img {
+            max-height: 50px;
+            width: auto;
+        }
+    }
+    .inner  {
+        display: block;
+        border: 2px solid #ccc;
+        border-radius: 10px;
+        padding: 10px;
+        .media-body {
+            height: 50px;
+            vertical-align: middle;
+        }
+        .media-heading {margin-bottom: 0;}
+        box-shadow: 0 1px 5px #ccc;
+    }
+}
 
 /*comments*/
 .woocommerce #respond , .woocommerce {
@@ -1345,6 +1404,35 @@ ol.commentlist {
     }
     margin-bottom: 20px;
 }
+#map_modal {
+    iframe {
+        width: 100%!important;
+    }
+}
+form.es_widget_form {
+    .es_textbox {
+        width: 100%;
+        input {
+            height: 40px;
+            padding: 6px 12px;
+            display: block;
+            width: 100%;
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+            border: 1px solid #eee;
+        }
+    }
+    #es_txt_button {
+        padding: 10px 12px;
+        font-size: 1.3rem;
+        border: none;
+        border-radius: 3px;
+        background: #ddd;
+        &:hover {
+            background: $maincl;
+            color: #fff;
+        }
+    }
+}
 .end-footer {
     background: $endcl;
     padding: 10px 0;
@@ -1367,4 +1455,17 @@ ol.commentlist {
     &:focus {
         outline: none;
     }
+}
+#totop{
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    background: $maincl;
+    color: #FFF;
+    border-radius: 4px;
+    font-size: 1.7rem;
 }

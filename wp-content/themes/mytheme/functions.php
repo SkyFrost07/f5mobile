@@ -15,6 +15,23 @@ register_nav_menus(
         )
 );
 
+function pl_register_sidebars() {
+	register_sidebar(array(				// Start a series of sidebars to register
+		'id' => 'subscribe', 					// Make an ID
+		'name' => 'Đăng ký nhận bản tin',				// Name it
+		'description' => 'Form đăng ký nhận bản tin', // Dumb description for the admin side
+		'before_widget' => '<div>',	// What to display before each widget
+		'after_widget' => '</div>',	// What to display following each widget
+		'before_title' => '<h3 class="foot-title text-uppercase">',	// What to display before each widget's title
+		'after_title' => '</h3>',		// What to display following each widget's title
+		'empty_title'=> '',					// What to display in the case of no title defined for a widget
+		// Copy and paste the lines above right here if you want to make another sidebar, 
+		// just change the values of id and name to another word/name
+	));
+} 
+// adding sidebars to Wordpress (these are created in functions.php)
+add_action( 'widgets_init', 'pl_register_sidebars' );
+
 /*
  * custom image size
  */
@@ -151,7 +168,6 @@ function pl_theme_scripts() {
     }
     if (is_singular()) {
         wp_enqueue_style('jquery-ui', $template_uri . '/css/jquery-ui.css', array(), '1.1.12', 'all');
-        wp_enqueue_style('fancybox', $template_uri . '/plugins/fancybox/jquery.fancybox-1.3.4.css', array(), '1.0', 'alll');
     }
     wp_enqueue_style('main', $template_uri . '/css/main.css', array(), '1.0', 'all');
     wp_enqueue_style('screen', $template_uri . '/css/screen.css', array(), '1.0', 'all');
@@ -163,7 +179,6 @@ function pl_theme_scripts() {
     if ( is_singular() ) { 
         wp_enqueue_script("comment-reply");
         wp_enqueue_script('jquery-ui', $template_uri . '/js/jquery-ui.min.js', array('jquery'));
-        wp_enqueue_script('fancybox', $template_uri . '/plugins/fancybox/jquery.fancybox-1.3.4.pack.js', 1.3, true);
     }
     wp_enqueue_script('script', $template_uri . '/js/main.js', array('jquery'), 1.0, true);
 }
