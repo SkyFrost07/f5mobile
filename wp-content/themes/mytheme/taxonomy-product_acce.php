@@ -28,13 +28,8 @@ get_header('shop');
     <?php woocommerce_breadcrumb(); ?>
     
     <div class="row">
-        <div class="col-sm-4 col-md-3">
-            <div class="wrapper mgb-20">
-                <?php get_sidebar('acce'); ?>
-            </div>
-        </div>
         
-        <div class="col-sm-8 col-md-9">
+        <div class="col-sm-8 col-md-9 acce-ct-col">
             <div class="wrapper mgb-20" style="padding-top: 15px;">
                 
                 <div class="row">
@@ -93,7 +88,7 @@ get_header('shop');
                         ?>
 
                         <div class="col-xs-6 col-md-3 item">
-                            <?php include TEMPLATEPATH . '../include/product_item.php' ?>
+                            <?php include 'include/product_item.php' ?>
                         </div>
 
                     <?php endwhile; // end of the loop. ?>
@@ -114,6 +109,13 @@ get_header('shop');
                 
             </div>
         </div>
+        
+        <div class="col-sm-4 col-md-3 acce-sb-col">
+            <div class="wrapper mgb-20">
+                <?php get_sidebar('acce'); ?>
+            </div>
+        </div>
+        
     </div>
     
 </div>

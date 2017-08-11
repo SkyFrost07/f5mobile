@@ -142,6 +142,7 @@
     });
 
     $('.slider-items').each(function (){
+        var loop = true;
         var responsive = {
                 0: {
                     items: 1,
@@ -160,6 +161,7 @@
                 }
             };
         if ($(this).hasClass('cross-sells-items')) {
+            loop = false;
             responsive = {
                 0: {
                     items: 1,
@@ -178,7 +180,7 @@
             };
         }
         $(this).owlCarousel({
-            loop: true,
+            loop: loop,
             nav: true,
             dots: false,
             margin: 20,

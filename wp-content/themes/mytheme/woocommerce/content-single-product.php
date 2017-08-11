@@ -290,7 +290,14 @@ include TEMPLATEPATH . '../include/nav_scroll_prod.php';
             </div>
             <div class="col-sm-4">
                 <div class="social-subscribe">
-                    <?php include TEMPLATEPATH.'../include/youtube_subscribe.php'; ?>
+                    <div class="full vid-sub">
+                        <div class="vid-sub-tit full">
+                            <strong><?php echo ot_get_option('youtube_channel_name'); ?></strong>
+                        </div>
+                        <div class="full content-vid-sub">
+                            <?php echo ot_get_option('youtube_embed_script'); ?>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

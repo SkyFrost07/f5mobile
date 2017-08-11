@@ -115,6 +115,7 @@
         </div>
         
         <?php echo ot_get_option('facebook_sdk_script') ?>
+        <?php echo ot_get_option('analytic_script') ?>
 
         <?php wp_footer(); ?>
     </body>

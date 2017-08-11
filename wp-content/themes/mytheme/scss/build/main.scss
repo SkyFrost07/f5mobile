@@ -373,10 +373,12 @@ body.post-type-archive-hoi_dap {
             padding: 5px 0;
         }
     }
-    .child-50 ul.sub-menu {
-        li {
-            width: 50%;
-            float: left;
+    ul.menu li {
+        &:nth-child(1), &:nth-child(2), &:nth-child(3) {
+            ul.sub-menu li {
+                width: 50%;
+                float: left;
+            }
         }
     }
 }

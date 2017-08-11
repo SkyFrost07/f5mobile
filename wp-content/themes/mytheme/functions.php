@@ -204,5 +204,6 @@ add_filter( 'admin_post_thumbnail_size', function ( $size, $thumbnail_id, $post 
 
 //more theme function
 include_once 'include/pl_functions.php';
+include_once 'include/custom-wp-admin.php';
 
 ?>
