@@ -1,9 +1,7 @@
 <?php
 
 if ( is_admin() ) {
-    $userID    = get_current_user_id();
-    $user_meta = get_userdata( $userID );
-    $user_role = $user_meta->roles;
+    $userID = get_current_user_id();
 
     if ( $userID != '1' ) {
         // Disable wp core Update
@@ -24,25 +22,29 @@ if ( is_admin() ) {
 
     function foxtail_remove_menus() {
 
-        remove_menu_page( 'index.php' );
-        remove_menu_page( 'jetpack' );
+//        remove_menu_page( 'index.php' );
+//        remove_menu_page( 'jetpack' );
         // remove_menu_page( 'edit.php' );
         remove_menu_page( 'upload.php' );
         // remove_menu_page( 'edit.php?post_type=page' );
         remove_menu_page( 'edit-comments.php' );
         remove_menu_page( 'customize.php' );
         remove_menu_page( 'plugins.php' );
-        // remove_menu_page( 'users.php' );
+//         remove_menu_page( 'users.php' );
         remove_menu_page( 'tools.php' );
         remove_menu_page( 'options-general.php' );
         remove_menu_page( 'vc-general' );
         remove_menu_page( 'about-ultimate' );
-        remove_menu_page( 'ninja-forms' );
-        remove_menu_page( 'loco-translate' );
-        remove_menu_page( 'wppusher' );
-        remove_menu_page( 'wp-fast-cache' );
+//        remove_menu_page( 'ninja-forms' );
+//        remove_menu_page( 'loco-translate' );
+//        remove_menu_page( 'wppusher' );
+//        remove_menu_page( 'wp-fast-cache' );
         remove_menu_page( 'itsec' );
-        remove_menu_page( 'about-ultimate' );
+//        remove_menu_page( 'about-ultimate' );
+        remove_menu_page('cptui_main_menu');
+        remove_menu_page('w3tc_dashboard');
+        remove_menu_page('yit_plugin_panel');
+        remove_menu_page('bhittani_plugin_kksr_settings');
     }
 
     function foxtail_remove_unnecessary_wordpress_menus() {
@@ -52,4 +54,11 @@ if ( is_admin() ) {
         unset( $submenu['themes.php'][22] );
         remove_menu_page('edit.php?post_type=acf');
     }
+    
+    function remove_core_updates(){
+        global $wp_version;return(object) array('last_checked'=> time(),'version_checked'=> $wp_version,);
+    }
+    add_filter('pre_site_transient_update_core','remove_core_updates');
+    add_filter('pre_site_transient_update_plugins','remove_core_updates');
+    add_filter('pre_site_transient_update_themes','remove_core_updates');
 }
