@@ -18,14 +18,19 @@ get_header();
     
         <h2 class="single-title mgb-20"><?php the_title(); ?></h2>
         
-        <div class="wrapper mgb-50">
+        <div class="wrapper mgb-50" style="padding-top: 50px;">
 
          <h3 class="normal-title text-uppercase text-center mgb-20 pdt-15">BẠN ĐANG QUAN TÂM ĐẾN THÔNG TIN GÌ?</h3>
         
         <?php 
+        $policies_ids = ot_get_option('policy_pages');
+        if (!$policies_ids) {
+            $policies_ids = [];
+        }
         $policies = new WP_Query([
-                'post_type' => 'chinh_sach',
-                'posts_per_page' => -1
+                'post_type' => 'page',
+                'posts_per_page' => -1,
+                'post__in' => $policies_ids
         ]);
         
         if ($policies->have_posts()) :
