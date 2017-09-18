@@ -84,7 +84,7 @@ include TEMPLATEPATH . '../include/nav_scroll_prod.php';
                             <?php 
                             $warrants = get_the_terms($product->id, 'warrant');
                             if ($warrants) {
-                                echo '<h4 class="small-title">Tặng kèm gói bảo hành</h4>';
+                                echo '<h4 class="small-title">Chính sách bảo hành</h4>';
                                 foreach ($warrants as $term) {
                                 ?>
                                 <div class="prod-excerpt-box warrant-box">

@@ -62,7 +62,7 @@
                     <div class="item row">
                         <div class="col-xs-4 col-md-3">
                             <div class="thumb">
-                                <a href="<?php echo $permal_link ?>"><?php the_post_thumbnail('thumbnail', ['class' => 'img-responsive']) ?></a>
+                                <a href="<?php echo $permal_link ?>"><?php the_post_thumbnail('medium', ['class' => 'img-responsive']) ?></a>
                             </div>
                         </div>
                         <div class="col-xs-8 col-md-9">
